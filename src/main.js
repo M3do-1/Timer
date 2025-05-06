@@ -1,13 +1,13 @@
 const time = document.getElementById("time");
 const timeReq = document.getElementById("time-text");
 
+let intervalId = null;
+let inputValue = 0;
 
-function reset() {
-    
-}
+
 
 function start() {
-    let inputValue = Number(timeReq.value);
+    inputValue = Number(timeReq.value);
     // time.textContent = inputValue;
 
         // for (let inputValue = Number(timeReq.value); inputValue >= 0 && inputValue < 3600; inputValue--) {
@@ -16,16 +16,28 @@ function start() {
         // }
         // time.textContent = inputValue;
         // time.textContent = inputValue;
-    let intervalId = setInterval(function() {
+        // if (inputValue !== null) return;
+    intervalId = setInterval(function() {
         if (inputValue <= 0) {
             clearInterval(intervalId);
+            intervalId = null;
             console.log("Time has ended");
             return;
         }
         console.log(inputValue--);
         time.textContent = `${inputValue}`;
-    }, 1000)
+    }, 1000);
 
+    // if (!intervalId) {
+    //     intervalId = setInterval(() => {
+    //         if (inputValue <= 0) {
+    //             intervalId = null;
+    //             return;
+    //         }
+    //         console.log(inputValue--);
+    //         time.textContent = inputValue;
+    //     }, 1000)
+    // }
     
 
     
@@ -33,5 +45,19 @@ function start() {
 }
 
 function pause() {
-    
+    if (intervalId !== null) {
+    clearInterval(intervalId);
+    intervalId = null;
+    console.log("Timer paused");
+    }
 }
+
+function resume() {
+ if (intervalId === null) {
+    intervalId = setInterval(() => {
+                console.log(inputValue--);
+                time.textContent = inputValue;
+            }, 1000)
+        }
+}
+
