@@ -4,6 +4,7 @@ const timeReq = document.getElementById("time-text");
 let intervalId = null;
 let inputValue = 0;
 
+console.log("if you see this I'm working on a V2 so you'll see it soon.")
 
 
 function start() {

@@ -25,6 +25,7 @@ body {
     display: flex;
     font-size: 150px;
     font-weight: bold;
+    color: black;
 }
 
 .timer {
@@ -53,9 +54,15 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
     font-size: 40px;
     gap: 4px;
+}
+
+p {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(200, 255, 0);
 }
 
 a {
